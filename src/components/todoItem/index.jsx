@@ -1,14 +1,17 @@
-import { Button } from '@mui/material'
+import { Button, Divider, ListItem, ListItemText } from '@mui/material'
 
 function TodoItem({ todo }) {
   return (
-    <li>
-      {todo.text}
-      <Button variant="contained">Complete</Button>
-      <Button variant="contained" color="error">
+    <ListItem divider sx={{ pb: 2, pt: 2 }}>
+      <ListItemText primary={todo.text} />
+      <Button variant="contained" sx={{ fontWeight: 700 }}>
+        Complete
+      </Button>
+      <Button variant="contained" color="error" sx={{ ml: 2, fontWeight: 700 }}>
         Delete
       </Button>
-    </li>
+      <Divider />
+    </ListItem>
   )
 }
 export default TodoItem

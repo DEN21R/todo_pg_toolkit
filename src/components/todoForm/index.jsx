@@ -28,7 +28,7 @@ function TodoForm() {
         variant="contained"
         fullWidth
         type="submit"
-        sx={{ backgroundColor: '#2eae32ff', mt: 2 }}
+        sx={{ backgroundColor: '#28a745', mt: 2, p: 2 }}
       >
         Add Todo
       </Button>
