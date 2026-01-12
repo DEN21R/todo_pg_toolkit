@@ -6,7 +6,13 @@ const todoSlice = createSlice({
     data: [],
   },
   reducers: {
-    addTodo() {},
+    addTodo(state, action) {
+      state.data.push({
+        id: Date.now(),
+        text: action.payload,
+        completed: false,
+      })
+    },
   },
 })
 export const { addTodo } = todoSlice.actions
