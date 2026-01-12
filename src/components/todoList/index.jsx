@@ -11,11 +11,20 @@ function TodoList() {
         <Typography variant="h4" sx={{ textAlign: 'center', fontWeight: 700 }}>
           Todo List
         </Typography>
-        <List>
-          {todos.map((el) => (
-            <TodoItem key={el.id} todo={el} />
-          ))}
-        </List>
+        {todos.length === 0 ? (
+          <Typography
+            variant="h4"
+            sx={{ textAlign: 'center', fontWeight: 700, mt: 6 }}
+          >
+            There are no tasks, the todo list is empty.
+          </Typography>
+        ) : (
+          <List>
+            {todos.map((el) => (
+              <TodoItem key={el.id} todo={el} />
+            ))}
+          </List>
+        )}
       </Card>
     </Box>
   )
