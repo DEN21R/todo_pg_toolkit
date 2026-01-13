@@ -1,15 +1,25 @@
 import { Button, ListItem, ListItemText } from '@mui/material'
 import { useDispatch } from 'react-redux'
-import { removeTodo } from '../../redux/slices/todoSlice'
+import { removeTodo, completTodo } from '../../redux/slices/todoSlice'
 
 function TodoItem({ todo }) {
   const dispatch = useDispatch()
 
   return (
     <ListItem divider sx={{ pb: 2, pt: 2 }}>
-      <ListItemText primary={todo.text} />
-      <Button variant="contained" sx={{ fontWeight: 700 }}>
-        Complete
+      <ListItemText
+        primary={todo.text}
+        sx={{
+          textDecoration: todo.completed ? 'line-through' : 'none',
+          fontWeight: 700,
+        }}
+      />
+      <Button
+        variant="contained"
+        sx={{ fontWeight: 700 }}
+        onClick={() => dispatch(completTodo(todo.id))}
+      >
+        {!todo.completed ? 'Complete' : 'Undo'}
       </Button>
       <Button
         variant="contained"
